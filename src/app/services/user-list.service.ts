@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
-import {UserListItemModel} from '../interfaces/user-list-item.interface';
+import {IUserListItemModel} from '../interfaces/user-list-item.interface';
 
 @Injectable()
 export class UserListService {
 
   constructor(private http: Http) { }
 
-  getUserList: () => UserListItemModel[] = function() {
+  getUserList: () => IUserListItemModel[] = function() {
     return this.http.get('../resources/user-list.json')
       .subscribe(
         res => res.json(),

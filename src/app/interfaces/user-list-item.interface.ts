@@ -1,3 +1,3 @@
-export interface UserListItemModel {
+export interface IUserListItemModel {
     name: string;
 }
