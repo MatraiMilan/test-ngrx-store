@@ -1,6 +1,6 @@
 import {userListReducer} from './user-list-reducer';
 import {ActionReducerMap} from '@ngrx/store';
-import {UserListItemModel} from '../components/user-list/user-list-item/user-list-item.model';
+import {UserListItemModel} from '../interfaces/user-list-item.interface';
 
 interface AppState {
     userList: UserListItemModel[]

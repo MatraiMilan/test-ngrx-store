@@ -1,7 +1,7 @@
 import {Action} from '@ngrx/store';
 import * as ActionTypes from './action-type-constans';
-import {UserListItemModel} from '../components/user-list/user-list-item/user-list-item.model';
 import {GetUserListSuccessAction} from '../actions/user.actions';
+import {UserListItemModel} from '../interfaces/user-list-item.interface';
 
 
 export function userListReducer(state: UserListItemModel[] = [], action: Action) {

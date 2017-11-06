@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
-import {UserListItemModel} from '../components/user-list/user-list-item/user-list-item.model';
+import {UserListItemModel} from '../interfaces/user-list-item.interface';
 
 @Injectable()
 export class UserListService {
