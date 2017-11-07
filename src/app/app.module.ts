@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user.effects';
 import {Reducers} from './reducers/index';
+import {UserListService} from './services/user-list.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {Reducers} from './reducers/index';
     ])
   ],
   providers: [
-    Store
+    Store,
+    UserListService
   ],
   bootstrap: [AppComponent]
 })

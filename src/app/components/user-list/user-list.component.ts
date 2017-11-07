@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../reducers/index';
+import {IUserListItemModel} from '../../interfaces/user-list-item.interface';
+import {Observable} from 'rxjs/Observable';
+import {GetUserListAction} from '../../actions/user.actions';
 
 @Component({
   selector: 'app-user-list',
@@ -7,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  userList$: Observable<IUserListItemModel[]>;
+
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.userList$ = this.store.select('userList');
+    this.store.dispatch(new GetUserListAction());
   }
 
 }

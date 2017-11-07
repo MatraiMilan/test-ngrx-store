@@ -2,7 +2,7 @@ import {userListReducer} from './user-list-reducer';
 import {ActionReducerMap} from '@ngrx/store';
 import {IUserListItemModel} from '../interfaces/user-list-item.interface';
 
-interface AppState {
+export interface AppState {
     userList: IUserListItemModel[]
 }
 
