@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {IUserListItemModel} from '../../../interfaces/user-list-item.interface';
 
 @Component({
@@ -9,10 +9,23 @@ import {IUserListItemModel} from '../../../interfaces/user-list-item.interface';
 export class UserListItemComponent implements OnInit {
 
   @Input() user: IUserListItemModel;
-
-  constructor() { }
+  @Output() onSelect: EventEmitter<any> = new EventEmitter();
+  isSelected: boolean;
+  
+  constructor() {
+    this.isSelected = false;
+   }
 
   ngOnInit() {
+  }
+
+  onClick() {
+    this.isSelected = true;
+    this.onSelect.emit(this.user);
+  }
+
+  onLostFocus() {
+    this.isSelected = false;
   }
 
 }

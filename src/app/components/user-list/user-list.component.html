@@ -1,8 +1,11 @@
 <div class="row">
     <div class="col-xs-12">
-        <app-user-list-item
-            *ngFor="let user of userList$ | async "
-            [user]="user">
-        </app-user-list-item>
+        <div class="list-group">
+            <app-user-list-item 
+                *ngFor="let user of userList$ | async " 
+                [user]="user"
+                (onSelect)="onUserSelectUser($event)">
+            </app-user-list-item>
+        </div>
     </div>
 </div>

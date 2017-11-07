@@ -21,4 +21,8 @@ export class UserListComponent implements OnInit {
     this.store.dispatch(new GetUserListAction());
   }
 
+  onUserSelectUser(event) {
+    console.log('Emitted: ', event);
+  }
+
 }
