@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import {Action, Store} from '@ngrx/store';
-import {UserListService} from '../services/user-list.service';
+import {UserListService} from '../services/user-list-service/user-list.service';
 
 import * as ActionTypeConstants from '../actions/action-type-constans';
 import {GetUserListSuccessAction} from '../actions/user.actions';
@@ -21,10 +21,11 @@ export class UserEffects {
     getUserList = this.actions
         .ofType(ActionTypeConstants.GET_USER_LIST)
         .switchMap(() => this.userListService.getUserList()
-            .map(res => res.json())
-            .map(data => this.userListService.sortUsersByName(data))
-            .map((sortedData) => {
-                return new GetUserListSuccessAction(sortedData);
+            .map(result => result.json())
+            .map(rawData => this.userListService.mapRawDataToConcreteUserListItemModelArray(rawData))
+            .map(concreteUserListItemModelArray => this.userListService.sortUsersByName(concreteUserListItemModelArray))
+            .map(sortedConcreteUserListItemModelArray => {
+                return new GetUserListSuccessAction(sortedConcreteUserListItemModelArray);
             })
         );
 }

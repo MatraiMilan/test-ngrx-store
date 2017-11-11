@@ -1,7 +1,6 @@
 <a href="#" 
     class="list-group-item list-group-item-action" 
-    [ngClass]="{'active': isSelected}" 
-    (click)="onClick()" 
-    (blur)="onLostFocus()">
+    [ngClass]="{'active': user.isSelected}" 
+    (click)="onSelect()">
     {{user.name}}
 </a>

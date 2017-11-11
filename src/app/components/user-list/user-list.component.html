@@ -4,7 +4,7 @@
             <app-user-list-item 
                 *ngFor="let user of userList$ | async " 
                 [user]="user"
-                (onSelect)="onUserSelectUser($event)">
+                (onSelected)="onUserSelectUser($event)">
             </app-user-list-item>
         </div>
     </div>

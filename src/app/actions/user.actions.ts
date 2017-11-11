@@ -11,3 +11,7 @@ export class GetUserListSuccessAction implements Action {
     constructor(public payload: IUserListItemModel[]) {} 
 }
 
+export class UpdateUserListOnSelectAction implements Action {
+    readonly type: string = ActionTypes.UPDATE_USER_LIST_ON_SELECT;
+    constructor(public payload: IUserListItemModel) {} 
+}

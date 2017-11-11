@@ -9,23 +9,16 @@ import {IUserListItemModel} from '../../../interfaces/user-list-item.interface';
 export class UserListItemComponent implements OnInit {
 
   @Input() user: IUserListItemModel;
-  @Output() onSelect: EventEmitter<any> = new EventEmitter();
+  @Output() onSelected: EventEmitter<any> = new EventEmitter();
   isSelected: boolean;
   
   constructor() {
-    this.isSelected = false;
    }
 
   ngOnInit() {
   }
 
-  onClick() {
-    this.isSelected = true;
-    this.onSelect.emit(this.user);
+  onSelect() {    
+    this.onSelected.emit(this.user);
   }
-
-  onLostFocus() {
-    this.isSelected = false;
-  }
-
 }
