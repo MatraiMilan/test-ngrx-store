@@ -14,6 +14,7 @@ export function userListReducer(state: IUserListItemModel[] = [], action: Action
         }
         case ActionTypes.UPDATE_USER_LIST_ON_SELECT: {
             const updateAction = action as UpdateUserListOnSelectAction;            
+            //TODO export this service call into an Effect and use case: ActionTypes.UPDATE_USER_LIST_ON_SELECT_SUCCESS
             state = service.updateStateBySelectedUser(state, updateAction);
             return [...state];
         }

@@ -18,7 +18,7 @@ export class UserEffects {
     constructor(private actions: Actions, private userListService: UserListService, private http: Http) {}
 
     @Effect()
-    getUserList = this.actions
+    getUserList: Observable<GetUserListSuccessAction> = this.actions
         .ofType(ActionTypeConstants.GET_USER_LIST)
         .switchMap(() => this.userListService.getUserList()
             .map(result => result.json())
