@@ -13,16 +13,22 @@ import {GetUserListAction} from '../../actions/user.actions';
 export class UserListComponent implements OnInit {
 
   userList$: Observable<IUserListItemModel[]>;
+  indexOfSelectedUser: number;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
+    this.indexOfSelectedUser = -1;
     this.userList$ = this.store.select('userList');
     this.store.dispatch(new GetUserListAction());
   }
 
-  onUserSelectUser(event: IUserListItemModel) {    
-    //TODO emit the index of this user to the parent
+  onSelectUser(indexOfSelectedUser: number) {    
+    this.indexOfSelectedUser = indexOfSelectedUser;
   }
+
+  isUserSelected(currentIndex: number): boolean {
+    return currentIndex === this.indexOfSelectedUser;
+  } 
 
 }

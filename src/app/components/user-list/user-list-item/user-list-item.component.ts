@@ -9,16 +9,16 @@ import {IUserListItemModel} from '../../../interfaces/user-list-item.interface';
 export class UserListItemComponent implements OnInit {
 
   @Input() user: IUserListItemModel;
-  @Output() onSelected: EventEmitter<any> = new EventEmitter();
-  isSelected: boolean;
+  @Input() index: number;
+  @Input() isSelected: boolean;
+  @Output() onSelected: EventEmitter<number> = new EventEmitter();
   
-  constructor() {
-   }
+  constructor() {}
 
   ngOnInit() {
   }
 
   onSelect() {    
-    this.onSelected.emit(this.user);
+    this.onSelected.emit(this.index);
   }
 }
