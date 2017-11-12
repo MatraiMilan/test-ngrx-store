@@ -22,10 +22,9 @@ export class UserEffects {
         .ofType(ActionTypeConstants.GET_USER_LIST)
         .switchMap(() => this.userListService.getUserList()
             .map(result => result.json())
-            .map(rawData => this.userListService.mapRawDataToConcreteUserListItemModelArray(rawData))
-            .map(concreteUserListItemModelArray => this.userListService.sortUsersByName(concreteUserListItemModelArray))
-            .map(sortedConcreteUserListItemModelArray => {
-                return new GetUserListSuccessAction(sortedConcreteUserListItemModelArray);
+            .map(data => this.userListService.sortUsersByName(data))
+            .map(sortedData => {
+                return new GetUserListSuccessAction(sortedData);
             })
         );
 }

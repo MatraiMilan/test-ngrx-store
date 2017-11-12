@@ -29,8 +29,7 @@ export class UserListService {
     let concreteUserListItemModelArray: IUserListItemModel[] = [];    
     userListArray.forEach(user => {
       const userListItem: IUserListItemModel = {
-        name: user.name,
-        isSelected: false
+        name: user.name
       };
       concreteUserListItemModelArray.push(userListItem);
     });

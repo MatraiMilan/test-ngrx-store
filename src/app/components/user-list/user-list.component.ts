@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 import {AppState} from '../../reducers/index';
 import {IUserListItemModel} from '../../interfaces/user-list-item.interface';
 import {Observable} from 'rxjs/Observable';
-import {GetUserListAction, UpdateUserListOnSelectAction} from '../../actions/user.actions';
+import {GetUserListAction} from '../../actions/user.actions';
 
 @Component({
   selector: 'app-user-list',
@@ -22,7 +22,7 @@ export class UserListComponent implements OnInit {
   }
 
   onUserSelectUser(event: IUserListItemModel) {    
-    this.store.dispatch(new UpdateUserListOnSelectAction(event));
+    //TODO emit the index of this user to the parent
   }
 
 }
